@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  background-color: #eeeeee;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
+}
+
+.video-wrap {
+  position: relative;
+  overflow: hidden;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: auto;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 10px;
+}
+
+.video-wrap__video {
+  width: 100%;
+  cursor: pointer;
+}
+
+.video-wrap:hover .video-wrap__controls {
+  transform: translateY(0%);
+}
+
+.video-wrap__controls {
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 14px;
+  width: 100%;
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transform: translateY(150%);
+  transition: transform 0.3s;
+}
+
+.video-wrap__play-pause {
+  display: flex;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.video-wrap__play-pause svg {
+  margin: auto;
+  width: 15px;
+  height: 15px;
+}
+
+.video-wrap__progress {
+  width: 350px;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.video-wrap__progress::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  -webkit-appearance: none;
+}
+
+.video-wrap__progress::-moz-range-progress {
+  background-color: #ffffff;
+}
+
+.video-wrap__speed {
+  text-align: center;
+  font-size: 16px;
   color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  appearance: none;
 }
 
-.App-link {
-  color: #61dafb;
+.video-wrap__mute-btn {
+  display: flex;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.video-wrap__mute-btn svg {
+  margin: auto;
+  width: 15px;
+  height: 15px;
 }
